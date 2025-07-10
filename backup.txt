@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <!-- Configurações básicas do cabeçalho -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- SEO -->
+ <meta name="description" content="Fique por dentro das notícias e acontecimentos da Serra do Espírito Santo: cultura, turismo, eventos e tudo o que acontece na região.">
+<meta name="keywords" content="noticiasdaserra, Serra do Espírito Santo, cultura capixaba, turismo, gastronomia, montanhas, cachoeiras, eventos, música, festas, natureza, Capixaba, região serrana, turismo rural">
+<meta name="author" content="Rica Games Notícias">
+<meta property="og:title" content="Notícias da Serra do Espírito Santo - Cultura, Turismo e Acontecimentos">
+<meta property="og:description" content="Acompanhe as notícias mais recentes da Serra do Espírito Santo, com informações sobre eventos, turismo, cultura e tudo o que está rolando na região montanhosa do Espírito Santo.">
+
+
+  <!-- Estilos CSS -->
+  <style>
+ body {
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff4500;
+    text-shadow: 1px 1px 3px black;
+  }
+
+  #video-container {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 10px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #ff4500;
+  }
+
+  #video-title {
+    max-width: 800px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    text-shadow: 1px 1px 2px black;
+    min-height: 2.5em;
+  }
+
+  button {
+    background-color: red;
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    margin-bottom: 40px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #e03e00;
+  }
+
+  #unique-string {
+    max-width: 90%;
+    background-color: #111;
+    border-radius: 8px;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: #ccc;
+    user-select: text;
+    margin-top: auto;
+  }
+
+  /* Propagandas piscantes */
+  #propaganda-piscante, #propaganda-piscante2 {
+    position: fixed;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    animation: piscar 1s infinite alternate;
+    box-shadow: 0 0 10px #ff4500;
+    z-index: 1000;
+    user-select: none;
+  }
+
+  /* Propaganda no topo */
+  #propaganda-piscante {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Propaganda no rodapé */
+  #propaganda-piscante2 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @keyframes piscar {
+    0% { opacity: 1; }
+    100% { opacity: 0.3; }
+  }
+
+  /* Ajustes para mobile */
+  @media (max-width: 600px) {
+    #video-container {
+      max-width: 100%;
+      aspect-ratio: auto;
+      height: 215px;
+    }
+
+    #video-title {
+      font-size: 16px;
+    }
+
+    /* Reduz o tamanho das propagandas no mobile */
+    #propaganda-piscante, #propaganda-piscante2 {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- Título principal da página -->
+  <h1>NOTICIAS DO RIO DE JANEIRO</h1>
+
+  <!-- Container onde o vídeo será carregado via JavaScript -->
+  <div id="video-container"></div>
+
+  <!-- Título do vídeo carregado -->
+  <div id="video-title">Carregando título...</div>
+
+  <!-- Botão para trocar vídeo aleatório -->
+  <button onclick="trocarVideo()">Trocar Vídeo</button>
+
+  <!-- Texto aleatório no fim da tela para tornar o conteúdo único -->
+  <div id="unique-string">Carregando conteúdo único...</div>
+
+  <!-- Propaganda piscante no canto direito -->
+  <div id="propaganda-piscante" onclick="window.open('https://victorxx.github.io/topicogithub01/3.html', '_blank')">
+    OFERTA IMPERDÍVEL!
+  </div>
+
+  <!-- Propaganda piscante no canto esquerdo -->
+  <div id="propaganda-piscante2" onclick="window.open('https://www.airbnb.com.br/r/saibvictore?s=6&t=061n0g', '_blank')">
+    COMECE NO AIRBNB HJ MESMO
+  </div>
+
+  <!-- JavaScript responsável pela lógica da página -->
+  <script>
+    // Lista de vídeos com seus IDs do YouTube e títulos personalizados
+    const videos = [
+        {id:"Sv6SduQeln4",titulo:"Motorista que matou assaltantes na Serra agiu por legítima defesa, conclui polícia"},
+        {id:"vwL86A22di0",titulo:"Dupla é presa com arma e drogas na Serra"},
+        {id:"a7iWY8C2e40",titulo:"Babá joga criança de sacada de apartamento em chamas em Serra (ES)"},
+        {id:"HtnZPIMBJgs",titulo:"Caminhoneiros brasileiros ficam presos em nevasca em fronteira entre Argentina e Chile | Bora"},
+        {id:"V5TOkmSpxw4",titulo:"    Casal acusado do assassinato de mãe e filho em Serra (ES)                   "}
+      
+     
+
+    ];
+
+    // Retorna um vídeo aleatório da lista
+    function getRandomVideo() {
+      return videos[Math.floor(Math.random() * videos.length)];
+    }
+
+    // Troca o vídeo exibido e atualiza o título
+    function trocarVideo() {
+      const video = getRandomVideo();
+      const container = document.getElementById('video-container');
+      const tituloEl = document.getElementById('video-title');
+
+      container.innerHTML = `<iframe 
+        src="https://www.youtube.com/embed/${video.id}" 
+        allowfullscreen 
+        loading="lazy" 
+        title="${video.titulo}"
+      ></iframe>`;
+
+      tituloEl.textContent = video.titulo;
+    }
+
+    // Gera uma string aleatória com letras, números e caracteres especiais
+    function gerarStringUnica(tamanho = 855) {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWncncbsbssshh\wjwbqioq45mdnXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
+      let resultado = '';
+      for(let i = 0; i < tamanho; i++) {
+        resultado += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return resultado;
+    }
+
+    // Executa ao carregar a página
+    document.addEventListener('DOMContentLoaded', () => {
+      trocarVideo(); // Carrega o vídeo inicial
+      document.getElementById('unique-string').textContent = gerarStringUnica(); // Gera a string aleatória no final
+    });
+  </script>
+
+</body>
+</html>
